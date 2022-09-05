@@ -1,4 +1,4 @@
-// Çüº¯È¯À» ¾Ë¾Æº¾½Ã´Ù. 1. static_cast<?>() 2. const_cast<?*>()
+// í˜•ë³€í™˜ì„ ì•Œì•„ë´…ì‹œë‹¤. 1. static_cast<?>() 2. const_cast<?*>()
 #include <iostream>
 
 //2.
@@ -6,12 +6,12 @@ void test(const int * n){
     // *n=1000; error
     auto a = const_cast<int*>(n);
     *a = 1000;
-    std::cout << "*nÀÇ °ª" << *n << std::endl;
-    std::cout << "*aÀÇ °ª" << *a << std::endl;
+    std::cout << "*nì˜ ê°’" << *n << std::endl;
+    std::cout << "*aì˜ ê°’" << *a << std::endl;
 }
 int main(){
     int x = 12345;
     test(&x);
-    std::cout << "xÀÇ °ª" << x << std::endl;
+    std::cout << "xì˜ ê°’" << x << std::endl;
 }
 

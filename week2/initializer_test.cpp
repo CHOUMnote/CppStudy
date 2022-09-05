@@ -1,10 +1,10 @@
-//initializer_list¿Í uniform initialization ±×¸®°í »ı¼ºÀÚ È£Ãâ ÃÊ±âÈ­¸¦ °øºÎÇÏÀÚ
-//±×¸®°í initializerÀÇ ¹®Á¦Á¡µµ Â¤¾î º¸ÀÚ!
+//initializer_listì™€ uniform initialization ê·¸ë¦¬ê³  ìƒì„±ì í˜¸ì¶œ ì´ˆê¸°í™”ë¥¼ ê³µë¶€í•˜ì
+//ê·¸ë¦¬ê³  initializerì˜ ë¬¸ì œì ë„ ì§šì–´ ë³´ì!
 #include <iostream>
-#include <initializer_list>  //ÀÌ Çì´õ¿¡ Á¤ÀÇ!
+#include <initializer_list>  //ì´ í—¤ë”ì— ì •ì˜!
 #include <typeinfo>
 
-//1. initializer_list ¹®Á¦Á¡!
+//1. initializer_list ë¬¸ì œì !
 class A{
     public:
         A(){
@@ -21,62 +21,62 @@ class A{
 class B{
     public:
         B(){
-            std::cout << "±âº» »ı¼ºÀÚ!\n";
+            std::cout << "ê¸°ë³¸ ìƒì„±ì!\n";
         }
         B(int a){
-            std::cout << "µÎ¹øÂ° »ı¼ºÀÚ!\n";
+            std::cout << "ë‘ë²ˆì§¸ ìƒì„±ì!\n";
         }
 };
 
 int main(){
     /*
-    //1¹ø! initializer_list ¹®Á¦Á¡!
-    A a;        //ÀÏ¹İ °´Ã¼ »ı¼º
-    A b{1000};  //initializer_list »ı¼ºÀÚ È£Ãâ
-    // c{1, 3.0};//¿¡·¯!!! -> CPP´Â »ı¼ºÀÚ¿¡ initializer_list¸¦ ÀÎÀÚ·Î ¹Ş´Â »ı¼ºÀÚ¸¦ ÃÖ¿ì¼±ÀûÀ¸·Î °í·Á! 
-    A d(1, 1.57); //Á¤»ó ÀÛµ¿!
-    A e({});    //initializer_list »ı¼ºÀÚ È£Ãâ
-    A f();      //ÇÔ¼ö È£Ãâ -> »ı¼ºÀÚ È£ÃâX
+    //1ë²ˆ! initializer_list ë¬¸ì œì !
+    A a;        //ì¼ë°˜ ê°ì²´ ìƒì„±
+    A b{1000};  //initializer_list ìƒì„±ì í˜¸ì¶œ
+    // c{1, 3.0};//ì—ëŸ¬!!! -> CPPëŠ” ìƒì„±ìì— initializer_listë¥¼ ì¸ìë¡œ ë°›ëŠ” ìƒì„±ìë¥¼ ìµœìš°ì„ ì ìœ¼ë¡œ ê³ ë ¤! 
+    A d(1, 1.57); //ì •ìƒ ì‘ë™!
+    A e({});    //initializer_list ìƒì„±ì í˜¸ì¶œ
+    A f();      //í•¨ìˆ˜ í˜¸ì¶œ -> ìƒì„±ì í˜¸ì¶œX
     */
 
     /*
-    //2¹ø! uniform initializationÀÇ ´Ù¾çÇÑ ÄÉÀÌ½º!
-    // '{}'¸¦ ÀÌ¿ëÇÏ¿© »ı¼ºÀÚ È£Ãâ -> ¾Ï½ÃÀû Çüº¯È¯ Àı´ë ºÒ°¡´É : ¿¡·¯ ¹ß»ı
-    B w;      //¼±¾ğ -> »ı¼ºÀÚ È£Ãâ >>> Pseudo in java : B w = new B()
-    // >>> ±âº»»ı¼ºÀÚ
-    B x();    //B¸¦ ¸®ÅÏÇÏ´Â ÇÔ¼ö x() È£Ãâ! -> cpp´Â ÇÔ¼ö·Î º¸ÀÌ´Â °Ç ¸ğµÎ ÇÔ¼ö·Î ÄÄÆÄÀÏ!
+    //2ë²ˆ! uniform initializationì˜ ë‹¤ì–‘í•œ ì¼€ì´ìŠ¤!
+    // '{}'ë¥¼ ì´ìš©í•˜ì—¬ ìƒì„±ì í˜¸ì¶œ -> ì•”ì‹œì  í˜•ë³€í™˜ ì ˆëŒ€ ë¶ˆê°€ëŠ¥ : ì—ëŸ¬ ë°œìƒ
+    B w;      //ì„ ì–¸ -> ìƒì„±ì í˜¸ì¶œ >>> Pseudo in java : B w = new B()
+    // >>> ê¸°ë³¸ìƒì„±ì
+    B x();    //Bë¥¼ ë¦¬í„´í•˜ëŠ” í•¨ìˆ˜ x() í˜¸ì¶œ! -> cppëŠ” í•¨ìˆ˜ë¡œ ë³´ì´ëŠ” ê±´ ëª¨ë‘ í•¨ìˆ˜ë¡œ ì»´íŒŒì¼!
     // >>> 
-    B y(10);  //¸Å°³º¯¼ö ÀÖ´Â »ı¼ºÀÚ È£Ãâ >>> Pseudo in java : B y = new B(10)
-    // >>> µÎ¹øÂ° »ı¼ºÀÚ
+    B y(10);  //ë§¤ê°œë³€ìˆ˜ ìˆëŠ” ìƒì„±ì í˜¸ì¶œ >>> Pseudo in java : B y = new B(10)
+    // >>> ë‘ë²ˆì§¸ ìƒì„±ì
     B z{};
-    // >>> ±âº» »ı¼ºÀÚ
+    // >>> ê¸°ë³¸ ìƒì„±ì
     B q = {100};
-    // >>> µÎ¹øÀç »ı¼ºÀÚ
-    // B e = {1.2}; //¿¡·¯! Çüº¯È¯Àº Çã¿ëÇÏÁö ¾Ê´Â´Ù!
+    // >>> ë‘ë²ˆì¬ ìƒì„±ì
+    // B e = {1.2}; //ì—ëŸ¬! í˜•ë³€í™˜ì€ í—ˆìš©í•˜ì§€ ì•ŠëŠ”ë‹¤!
     */
 
     /*
-    //3¹ø! uniform initialization º¯¼ö ÃÊ±âÈ­!
-    int a{1}; //int a = 1; Çüº¯È¯ Çã¿ë X
-    //double b{1}; //ÀÌ°Ç ¿ÖµÉ±î??
-    //int b = {1.4}; //¿¡·¯!
+    //3ë²ˆ! uniform initialization ë³€ìˆ˜ ì´ˆê¸°í™”!
+    int a{1}; //int a = 1; í˜•ë³€í™˜ í—ˆìš© X
+    //double b{1}; //ì´ê±´ ì™œë ê¹Œ??
+    //int b = {1.4}; //ì—ëŸ¬!
     
-    std::cout << "aÀÇ °ª : "<< typeid(a).name() <<  "Çü, " << a << std::endl;
+    std::cout << "aì˜ ê°’ : "<< typeid(a).name() <<  "í˜•, " << a << std::endl;
     */
 
-    //4¹ø! cpp17 ÀÌÈÄ auto¿Í std::initializer_list<T>ÀÇ »ó°ü °ü°è
+    //4ë²ˆ! cpp17 ì´í›„ autoì™€ std::initializer_list<T>ì˜ ìƒê´€ ê´€ê³„
     /*
     auto a = {n1,n2,n3} or {n1} -> auto == std::initializer_list<T>
     aubo b{n1} -> auto == int
-    auto c{n1,n2} -> ¿¡·¯!
+    auto c{n1,n2} -> ì—ëŸ¬!
 
     +++
-    auto list = {"a", "b", "c"} -> initializer_list<std::string>ÀÌ ¾Æ´Ñ initializer_list<const char*>
+    auto list = {"a", "b", "c"} -> initializer_list<std::string>ì´ ì•„ë‹Œ initializer_list<const char*>
     */
     auto a = {1};    
     auto b = {1, 2};  
     auto c{1};
-    //auto d{1, 2}; //¿¡·¯! 
+    //auto d{1, 2}; //ì—ëŸ¬! 
     auto arr = {"a", "b", "c"};
 
     std::cout << typeid(a).name() << std::endl;
@@ -84,5 +84,5 @@ int main(){
     std::cout << typeid(c).name() << std::endl;
     std::cout << typeid(arr).name() << std::endl;
     // >>> St16initializer_listIPKcE
-    //ÇØ¼® IPKc -> ¹è¿­ : const * char À» ÀÇ¹Ì
+    //í•´ì„ IPKc -> ë°°ì—´ : const * char ì„ ì˜ë¯¸
 }
