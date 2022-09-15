@@ -58,7 +58,7 @@ int main(){
     /*
     //3번! uniform initialization 변수 초기화!
     int a{1}; //int a = 1; 형변환 허용 X
-    //double b{1}; //이건 왜될까??
+    //double b{1}; //이건 왜될까?? ->> 축소 변환이 아니라 확장 변환이기 때문!
     //int b = {1.4}; //에러!
     
     std::cout << "a의 값 : "<< typeid(a).name() <<  "형, " << a << std::endl;
