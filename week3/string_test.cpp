@@ -12,7 +12,7 @@ int main(){
     std::string str;
 
     std::cin >> a;
-    getline(std::cin, str); //(입력 스트림, 받은 주소, [특정 문자에서 입력 중지])
+    getline(std::cin, str); //(입력 스트림, 받을 주소, [특정 문자에서 입력 중지])
     //>>> 만약 abc de f 입력시 cin에서 abc 이후 입력 스트림에 \n이 존재 따라서 " de f"자동 입력
 
     for(char i:a)
