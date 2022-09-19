@@ -31,7 +31,8 @@ int main(){
     cout<< b << endl;
     cout<< c << endl;
     cout<< d << endl;
-    cout<< b[1] << endl;
+    cout<< b.at(1) << endl;
+    //std::string.at(n) == std::string[n]
     cout<< boolalpha << (a==b) <<endl;
     cout<< boolalpha << (c==d) <<endl<<endl;
 
