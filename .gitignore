@@ -2,5 +2,6 @@
 
 .vscode/*
 
+TEST/*
 testCpp.cpp
 testC.c
