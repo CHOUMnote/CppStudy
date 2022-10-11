@@ -25,7 +25,8 @@ int main(){
     int *parr = new int[5];
     
     for(int i=0; i<5; i++){
-        *(parr+i) = i;
+        //*(parr+i) = i;
+        parr[i] = i;
         std::cout<< "p[i] = " << *(parr+i) << std::endl;
     }
     delete [] p; //동적 생성 배열 삭제 
