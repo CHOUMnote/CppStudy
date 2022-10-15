@@ -1,9 +1,9 @@
 # CppStudy
 C++ 공부 히스토리!!
 
-1.
+1. c++ 기본
 
-2.
+2. initializer 공부
 
 3.
 
