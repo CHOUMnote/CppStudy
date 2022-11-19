@@ -42,6 +42,7 @@ void ColorPoint::showColorPoint()
 {
     cout << color << ":";
     showPoint(); //부모의 메소드 호출
+    //cp.x;   //상속이여도 다른 언어처럼 private 접근 못함
 }
 
 int main()
@@ -57,4 +58,5 @@ int main()
     cp.setColor("Red");  // 자식 객체
     p.showPoint();       // 부모 객체
     cp.showColorPoint(); // 자식 객체
+
 }
