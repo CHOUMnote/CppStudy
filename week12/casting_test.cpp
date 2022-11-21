@@ -73,13 +73,16 @@ int main()
     ColorPoint t;
     ColorPoint *tp = &t;
     Point b;
-    ColorPoint *p = (ColorPoint*)&b; //다운 캐스팅
+    Point *tp2 = tp;    //업 캐스팅
+    tp2=&b;
+    ColorPoint *p = (ColorPoint*)tp2; //다운 캐스팅
 
     p->set(1,2);
     p->showPoint();
     //타입은 ColorPoint지만 알 수 없는 메소드 들임
     p->setColor("Black");
-    p->showColorPoint();
+    p->showColorPoint(); //tp2가 부모 클래스 였어도 안된다. 현재 자신이 업캐스팅 된 자식 객체여야한다.
 
+    cout << "비정상 종료" << endl;
     return 0;
 }
