@@ -81,7 +81,7 @@ int main()
     p->showPoint();
     //타입은 ColorPoint지만 알 수 없는 메소드 들임
     p->setColor("Black");
-    p->showColorPoint(); //tp2가 부모 클래스 였어도 안된다. 현재 자신이 업캐스팅 된 자식 객체여야한다.
+    p->showColorPoint(); //tp2가 업 캐스팅 이였어도 안된다. 현재 자신이 업캐스팅 된 자식 객체여야한다.
 
     cout << "비정상 종료" << endl;
     return 0;
