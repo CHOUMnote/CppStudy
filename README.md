@@ -5,11 +5,11 @@ C++ 공부 히스토리!!
 
 2. initializer 공부
 
-3. Reference
+3. Reference 공부
 
-4.
+4. class 공부
 
-5.
+5. 클래스와 포인터 공부
 
 6.
 
