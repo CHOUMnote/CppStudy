@@ -5,3 +5,8 @@
 TEST/*
 testCpp.cpp
 testC.c
+
+input.txt
+output.txt
+Create_testcase.cpp
+Create_result.cpp
